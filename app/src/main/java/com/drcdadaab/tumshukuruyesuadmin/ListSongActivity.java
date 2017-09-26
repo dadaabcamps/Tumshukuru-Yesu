@@ -46,16 +46,18 @@ public class ListSongActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         //firebasenewsRecycleAdapter.getRef(position).removeValue();
-                        openNoticeDetailActivity(model.getTitle(), model.getHymnnumber(), model.getContent());
+                        openNoticeDetailActivity(model.getSongId(), model.getTitle(), model.getHymnnumber(), model.getContent(), model.getLanguage());
                     }
                 });
             }
 
-            private void openNoticeDetailActivity(String title, String hymnnumber, String content) {
+            private void openNoticeDetailActivity(String id, String title, String hymnnumber, String content, String language) {
                 Intent intent = new Intent(ListSongActivity.this, ViewSongActivity.class);
+                intent.putExtra("idKey", id);
                 intent.putExtra("titleKey", title);
                 intent.putExtra("HymnNumberKey", hymnnumber);
                 intent.putExtra("ContentKey", content);
+                intent.putExtra("languageKey", language);
 
                 startActivity(intent);
             }
@@ -63,5 +65,10 @@ public class ListSongActivity extends AppCompatActivity {
         rv.setLayoutManager(linearLayoutManager);
         rv.setAdapter(firebasenewsRecycleAdapter);
 
+    }
+    public void openCreateSongActivity (View view) {
+        Intent intent = new Intent(ListSongActivity.this, CreateSongActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

@@ -25,8 +25,12 @@
         <activity
             android:name=".CreateSongActivity"
             android:parentActivityName=".CreateSongActivity" />
-        <activity android:name=".ViewSongActivity" />
-        <activity android:name=".ListSongActivity"></activity>
+        <activity
+            android:name=".ViewSongActivity"
+            android:parentActivityName=".ListSongActivity"
+            android:theme="@style/CustomActionBar" />
+        <activity android:name=".ListSongActivity" />
+        <activity android:name=".EditSongActivity"></activity>
     </application>
 
 </manifest>

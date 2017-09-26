@@ -54,6 +54,7 @@ public class CreateSongActivity extends AppCompatActivity implements AdapterView
 
     public void openViewSongActivity (String title, String hymnnumber, String content){
         Intent intent = new Intent(CreateSongActivity.this,ViewSongActivity.class);
+        intent.putExtra("idKey", songId);
         intent.putExtra("titleKey", title);
         intent.putExtra("HymnNumberKey", hymnnumber);
         intent.putExtra("ContentKey", content);
