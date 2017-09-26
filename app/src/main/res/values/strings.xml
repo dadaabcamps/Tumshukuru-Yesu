@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Tumshukuru Yesu Admin</string>
+    <string-array name="song_language">
+        <item>English</item>
+        <item>Arabic</item>
+    </string-array>
+</resources>

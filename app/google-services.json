@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "476244887354",
+    "firebase_url": "https://tumshukuruyesu.firebaseio.com",
+    "project_id": "tumshukuruyesu",
+    "storage_bucket": "tumshukuruyesu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476244887354:android:efb4121ba70a220e",
+        "android_client_info": {
+          "package_name": "com.drcdadaab.tumshukuruyesuadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "476244887354-e9bcbesetpgspaen86hems1e8qor78li.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.drcdadaab.tumshukuruyesuadmin",
+            "certificate_hash": "8de16ceeeae15f34f5994a20c39067ee6ab0c4bb"
+          }
+        },
+        {
+          "client_id": "476244887354-tiupg0d0kcf0j6re35afqm4kb1k31vme.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsWF8KPzaHg2j-pWG2YYxADJTY1FnhNEE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "476244887354-tiupg0d0kcf0j6re35afqm4kb1k31vme.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
