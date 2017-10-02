@@ -7,15 +7,17 @@ package com.drcdadaab.tumshukuruyesuadmin;
 public class Song {
 
     String title, hymnnumber, content, songId, language;
+    Boolean hymn;
 
     public Song(){}
 
-    public Song( String title, String hymnnumber, String content, String songId, String language){
+    public Song( String title, String hymnnumber, String content, String songId, String language, Boolean hymn){
         this.title = title;
         this.hymnnumber = hymnnumber;
         this.content = content;
         this.songId = songId;
         this.language = language;
+        this.hymn = hymn;
 
     }
 
@@ -24,6 +26,7 @@ public class Song {
     public String getContent() { return content;}
     public String getHymnnumber (){ return hymnnumber;}
     public String getLanguage (){ return language;}
+    public Boolean getHymn (){ return hymn;}
 
 
 }

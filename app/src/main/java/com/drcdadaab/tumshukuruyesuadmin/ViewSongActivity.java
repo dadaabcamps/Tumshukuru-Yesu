@@ -20,6 +20,7 @@ public class ViewSongActivity extends AppCompatActivity {
 
     TextView textViewShowTitle, textViewHymnNumber, textViewShowContent;
     String title, HymnNumber, Content, id, language;
+    Boolean hymn;
 
     FirebaseDatabase db;
     DatabaseReference dbSongs;
@@ -51,6 +52,7 @@ public class ViewSongActivity extends AppCompatActivity {
         HymnNumber =i.getStringExtra("HymnNumberKey");
         Content =i.getStringExtra("ContentKey");
         language =i.getStringExtra("languageKey");
+        hymn =i.getBooleanExtra("hymnKey", false);
 
         getSupportActionBar().setTitle(title);
 
@@ -79,6 +81,7 @@ public class ViewSongActivity extends AppCompatActivity {
                 songIntent.putExtra("hymnNumberKey", HymnNumber);
                 songIntent.putExtra("contentKey", Content);
                 songIntent.putExtra("languageKey", language);
+                songIntent.putExtra("hymnKey", hymn);
 
                 startActivity(songIntent);
                 // User chose the "Settings" item, show the app settings UI...
