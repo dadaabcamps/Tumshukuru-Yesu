@@ -28,7 +28,7 @@ public class CreateSongActivity extends AppCompatActivity implements AdapterView
     CheckBox checkBoxHymn;
     EditText editTextHymnNumber;
     EditText editTextContent;
-    String title, hymnnumber, content, songId, language;
+    String title, hymnnumber, content, songId, language, language_hymnumber;
     Boolean hymn = false;
     FirebaseDatabase db;
     DatabaseReference dbRef;
@@ -106,6 +106,7 @@ public class CreateSongActivity extends AppCompatActivity implements AdapterView
         hymnnumber = editTextHymnNumber.getText().toString().trim();
         content = editTextContent.getText().toString().trim();
 
+
         if (checkBoxHymn.isChecked()){
             hymn = true;
 
@@ -113,6 +114,8 @@ public class CreateSongActivity extends AppCompatActivity implements AdapterView
                 Toast.makeText(CreateSongActivity.this, "Fill in all the fields", Toast.LENGTH_SHORT).show();
                 return;
             }
+            int mod_hymnumber = 1000000 + Integer.valueOf(hymnnumber);
+            language_hymnumber = String.valueOf(language+"_"+mod_hymnumber);
         }else{
             language = "";
         }
@@ -122,10 +125,11 @@ public class CreateSongActivity extends AppCompatActivity implements AdapterView
             return;
         }
         songId = dbRef.push().getKey();
-        Song song = new Song(title, hymnnumber, content, songId, language, hymn);
+        Song song = new Song(title, hymnnumber, content, songId, language, hymn, language_hymnumber);
         dbRef.child(songId).setValue(song);
 
         Toast.makeText(CreateSongActivity.this, "Song Created", Toast.LENGTH_SHORT).show();
+        finish();
         startActivity(new Intent(CreateSongActivity.this, ListSongActivity.class));
 //        openViewSongActivity(title, hymnnumber, content, language, hymn);
      }

@@ -21,7 +21,7 @@ public class EditSongActivity extends AppCompatActivity implements AdapterView.O
     EditText editTextEditContent;
     CheckBox checkBoxEditHymn;
     Spinner spinnerEditSong;
-    String title, hymnnumber, content, id, language;
+    String title, hymnnumber, content, id, language, language_hymnumber;
     Boolean hymn;
     FirebaseDatabase db;
     DatabaseReference dbRef;
@@ -52,6 +52,7 @@ public class EditSongActivity extends AppCompatActivity implements AdapterView.O
         id = i.getStringExtra("idKey");
         title = i.getStringExtra("titleKey");
         hymnnumber =i.getStringExtra("hymnNumberKey");
+        language_hymnumber =i.getStringExtra("language_hymnumberKey");
         content =i.getStringExtra("contentKey");
         language =i.getStringExtra("languageKey");
         hymn =i.getBooleanExtra("hymnKey", false);
@@ -81,6 +82,9 @@ public class EditSongActivity extends AppCompatActivity implements AdapterView.O
                 Toast.makeText(EditSongActivity.this, "Fill in all the fields", Toast.LENGTH_SHORT).show();
                 return;
             }
+
+            int mod_hymnumber = 1000000 + Integer.valueOf(hymnnumber);
+            language_hymnumber = String.valueOf(language+"_"+mod_hymnumber);
         } else {
             language ="";
         }
@@ -90,10 +94,11 @@ public class EditSongActivity extends AppCompatActivity implements AdapterView.O
             return;
         }
 
-        Song song = new Song(title, hymnnumber, content, id, language, hymn);
+        Song song = new Song(title, hymnnumber, content, id, language, hymn, language_hymnumber);
         dbRef.child(id).setValue(song);
 
         Toast.makeText(EditSongActivity.this, "Song Updated", Toast.LENGTH_SHORT).show();
+        finish();
         startActivity(new Intent(EditSongActivity.this, ListSongActivity.class));
 //        openViewSongActivity(title, hymnnumber, content );
     }

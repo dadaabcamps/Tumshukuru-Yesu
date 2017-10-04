@@ -19,7 +19,7 @@ public class ViewSongActivity extends AppCompatActivity {
 
 
     TextView textViewShowTitle, textViewHymnNumber, textViewShowContent;
-    String title, HymnNumber, Content, id, language;
+    String title, HymnNumber, Content, id, language, language_hymnumber;
     Boolean hymn;
 
     FirebaseDatabase db;
@@ -50,6 +50,7 @@ public class ViewSongActivity extends AppCompatActivity {
         id = i.getStringExtra("idKey");
         title = i.getStringExtra("titleKey");
         HymnNumber =i.getStringExtra("HymnNumberKey");
+        language_hymnumber =i.getStringExtra("language_hymnumberKey");
         Content =i.getStringExtra("ContentKey");
         language =i.getStringExtra("languageKey");
         hymn =i.getBooleanExtra("hymnKey", false);
@@ -79,6 +80,7 @@ public class ViewSongActivity extends AppCompatActivity {
                 songIntent.putExtra("idKey", id);
                 songIntent.putExtra("titleKey", title);
                 songIntent.putExtra("hymnNumberKey", HymnNumber);
+                songIntent.putExtra("language_hymnumberKey", language_hymnumber);
                 songIntent.putExtra("contentKey", Content);
                 songIntent.putExtra("languageKey", language);
                 songIntent.putExtra("hymnKey", hymn);
